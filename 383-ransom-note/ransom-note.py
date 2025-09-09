@@ -5,17 +5,8 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
-        hash_map = dict()
-        for char in magazine:
-            if char not in hash_map:
-                hash_map[char] = 1
-            else:
-                hash_map[char] += 1
-        
-        for char in ransomNote:
-            if char in hash_map and hash_map[char] > 0:
-                hash_map[char] -= 1
-            else:
+        for char in list(set(ransomNote)):
+            if ransomNote.count(char) > magazine.count(char):
                 return False
         return True
         
