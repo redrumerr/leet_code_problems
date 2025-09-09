@@ -5,10 +5,17 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
-        for i in range(len(magazine)):
-            ransomNote = ransomNote.replace(magazine[i], '', 1)
-            if not ransomNote:
-                return True
-        return False
-
+        hash_map = dict()
+        for char in magazine:
+            if char not in hash_map:
+                hash_map[char] = 1
+            else:
+                hash_map[char] += 1
+        
+        for char in ransomNote:
+            if char in hash_map and hash_map[char] > 0:
+                hash_map[char] -= 1
+            else:
+                return False
+        return True
         
