@@ -4,4 +4,11 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
-        return False if x < 0 or str(x) != str(x)[::-1] else True
+        if x < 0:
+            return False
+        rev_num = 0
+        num = x
+        while num > 0:
+            rev_num = rev_num * 10 + num % 10
+            num //= 10
+        return rev_num == x
