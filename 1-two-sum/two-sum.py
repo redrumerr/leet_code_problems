@@ -5,16 +5,16 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        if len(nums) == 2 and sum(nums) == target:
+        if len(nums)==2 and sum(nums)==target:
             return [i for i in range(len(nums))]
 
-        hash_map = {}
+        hash_map={}
         for i in range(len(nums)):
-            hash_map[nums[i]] = i
+            hash_map[nums[i]]=i
 
         for i in range(len(nums)):
-            x = target - nums[i]
-            if nums.count(x) <= 0:
+            x=target-nums[i]
+            if nums.count(x)<=0:
                 continue
             else:
                 if x in hash_map and i != hash_map[x]:
