@@ -8,7 +8,7 @@ class Solution(object):
         if len(nums) == 2 and sum(nums) == target:
             return [i for i in range(len(nums))]
 
-        hash_map = dict()
+        hash_map = {}
         for i in range(len(nums)):
             hash_map[nums[i]] = i
 
