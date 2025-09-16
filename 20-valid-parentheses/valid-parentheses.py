@@ -6,20 +6,12 @@ class Solution(object):
         """
         if len(s) < 2:
             return False
+        map_ = {')': '(', '}': '{', ']': '['}
         stack = []
         for e in s:
-            if e in ['(', '{', '[']:
+            if e in map_.values():
                 stack.append(e)
             else:
-                if stack:
-                    if e == ')' and stack[-1] == '(':
-                        stack.pop(-1)
-                    elif e == ']' and stack[-1] == '[':
-                        stack.pop(-1)
-                    elif e == '}' and stack[-1] == '{':
-                        stack.pop(-1)
-                    else:
-                        return False
-                else:
+                if not stack or map_[e] != stack.pop():
                     return False
-        return not bool(stack)
+        return not stack
