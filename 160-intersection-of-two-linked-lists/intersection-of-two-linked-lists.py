@@ -12,9 +12,9 @@ class Solution(object):
         """
         temp1 = headA
         temp2 = headB
-        hashmap = set()
+        hashmap = {}
         while temp1 is not None:
-            hashmap.add(temp1)
+            hashmap[temp1] = temp1.val
             temp1 = temp1.next
         
         while temp2 is not None:
