@@ -12,7 +12,6 @@ class Solution(object):
             if nums[i]:
                 for j in range(i * i, n, i):
                     nums[j] = 0
-                    j += i
             i += 1
         return sum(nums)
         
