@@ -4,5 +4,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        return sum(sorted(nums)[::2])
+        nums.sort()
+        return sum(nums[::2])
         
